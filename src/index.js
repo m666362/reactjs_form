@@ -5,11 +5,12 @@ import * as serviceWorker from './serviceWorker';
 import CounterDemo from "./Components/CounterDemo";
 import {ThemeProvider} from '@material-ui/core/styles';
 import {theme} from './Others/Theme'
+import Form from "./Components/Form";
 
 ReactDOM.render(
     <React.StrictMode>
         <ThemeProvider theme={theme}>
-            <CounterDemo/>
+            <Form/>
         </ThemeProvider>
     </React.StrictMode>,
     document.getElementById('root')
