@@ -10,9 +10,9 @@ export const immer = (config) => (set, get) =>
     config((fn) => set(produce(fn)), get);
 
 let store = (set) => ({
-    counter: 0,
-    setCounter: (num)=> set((state)=>{
-        state.counter = state.counter + num;
+    formState: 1,
+    setFormState: (num)=> set((state)=>{
+        state.formState = state.formState + num;
     }),
     formOutput: {},
     setFormOutput: (object)=> set((state)=>{
@@ -35,7 +35,7 @@ export default useTrackedStore;
  * import useTrackedStore from 'store_path'
  * here useTrackedStore is what we export default
  *
- * insede the function use
+ * inside the function use
  *
  * const state = useTrackedStore()
  *
