@@ -43,7 +43,6 @@ const Form = () => {
                                         <CustomLabel htmlFor="fname-text">
                                             {serviceData[item].title}
                                         </CustomLabel>
-                                        {JSON.stringify()}
                                         <CommonComponent
                                             id="fname-text"
                                             variant="outlined"
@@ -55,32 +54,31 @@ const Form = () => {
                                     </Grid>
                                 })
                             }
-                            {
-                                state.formState ===3 && <Grid item>
-                                    <CustomLabel htmlFor="fname-text">
-                                        Select Field
-                                    </CustomLabel>
-                                    <CustomCheckBox
-                                        id="fname-text"
-                                        variant="outlined"
-                                        fullWidth
-                                        size="small"
-                                        name="checkbox"
-                                        control={control}/>
-                                </Grid>
-                            }
                         </Grid>
 
                         <Grid item >
                             <Card style={{padding: 20, margin: 20, maxWidth: 300}}>
-                                {JSON.stringify(state.formOutput)}
+                                {
+                                    Object.keys(state.formOutput).map((item, index)=> {
+                                        if(index<=state.formState && state.formOutput[item]!= undefined){
+                                            return <Grid>
+                                                <span>{item} : </span>
+                                                <span>{JSON.stringify(state.formOutput[item])}</span>
+                                                <Button variant="outlined" style={{margin: 10}} onClick={()=>{
+                                                    state.setFormAtParticular(index)
+                                                }
+                                                }>Edit</Button>
+                                            </Grid>
+                                        }
+                                    })
+                                }
                             </Card>
                         </Grid>
 
                         <Grid container direction='row' alignItems='center' alignContent='center' justify='center'>
                             {state.formState < Object.keys(serviceData).length && <RenderButton/>}
-                            {state.formState === Object.keys(serviceData).length && <Button type="reset" onClick={()=>{
-                                state.setFormAtParticular(2);
+                            {state.formState === Object.keys(serviceData).length && <Button variant="fill" style={{margin: 10}} color="primary" onClick={()=>{
+                                state.setFormAtParticular(0);
                             }}>Reset</Button>}
                         </Grid>
 

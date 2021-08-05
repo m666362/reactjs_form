@@ -22,6 +22,7 @@ const RenderButton = (props) => {
             variant={"outlined"}
             color={"primary"}
             type={"submit"}
+            style={{margin: 10}}
             onClick={()=>{
                 state.setFormState(+1)
             }}>
