@@ -3,6 +3,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import useTrackedStore from "../../utils/ZustandStore";
 import Button from "@material-ui/core/Button";
+import {serviceData} from "../../data/service-data";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -13,31 +14,20 @@ const useStyles = makeStyles((theme) => ({
 const RenderButton = (props) => {
     const {item} = props;
     const classes = useStyles();
+    const len = Object.keys(serviceData).length;
     const state = useTrackedStore()
 
-    const myButton = ()=> {
-        if(state.formState<=3){
-            return <Button
-                variant={"outlined"}
-                color={"primary"}
-                type={"submit"}
-                onClick={()=>{
-                    state.setFormState(+1)
-                }}>
-                Next
-            </Button>
-        }else{
-               return <Button
-                    variant={"outlined"}
-                    color={"primary"}
-                    type={"submit"}
-                >
-                    Submit
-                </Button>
-            }
-    }
-
-    return myButton();
+    return (
+        <Button
+            variant={"outlined"}
+            color={"primary"}
+            type={"submit"}
+            onClick={()=>{
+                state.setFormState(+1)
+            }}>
+            {state.formState<len-1?"Next":"Submit"}
+        </Button>
+    );
 };
 
 export default RenderButton;

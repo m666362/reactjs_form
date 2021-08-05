@@ -11,6 +11,8 @@ import CustomSelect from "./form-component/CustomSelect";
 import CustomCheckBox from "./form-component/CustomCheckBox";
 import RenderButton from "./form-component/RenderButton";
 import {makeStyles} from "@material-ui/core/styles";
+import {serviceData} from "../data/service-data";
+import CommonComponent from "./dynamic/CommonComponent";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -33,36 +35,25 @@ const Form = () => {
             <Card >
                 <CardContent className={classes.root}>
                     <Grid container justify={"center"} alignItems={"center"} direction={"row"}>
+                        {/*{state.formState}*/}
                         <Grid item lg={6} md={12} sm={12} >
                             {
-                                state.formState===1 && <Grid item>
-                                    <CustomLabel htmlFor="fname-text">
-                                        Text Field
-                                    </CustomLabel>
-                                    <CustomTextField
-                                        id="fname-text"
-                                        variant="outlined"
-                                        fullWidth
-                                        size="small"
-                                        name="textField"
-                                        control={control}
-                                    />
-                                </Grid>
-                            }
-                            {
-                                state.formState===2 && <Grid item>
-                                    <CustomLabel htmlFor="fname-text">
-                                        Select Field
-                                    </CustomLabel>
-                                    <CustomSelect
-                                        id="fname-text"
-                                        variant="outlined"
-                                        fullWidth
-                                        size="small"
-                                        name="select"
-                                        control={control}
-                                        menus={[1, 2, 3]}/>
-                                </Grid>
+                                Object.keys(serviceData).map((item, index)=>{
+                                    return state.formState===index && <Grid item>
+                                        <CustomLabel htmlFor="fname-text">
+                                            {serviceData[item].title}
+                                        </CustomLabel>
+                                        {JSON.stringify()}
+                                        <CommonComponent
+                                            id="fname-text"
+                                            variant="outlined"
+                                            fullWidth
+                                            size="small"
+                                            control={control}
+                                            item={serviceData[item]}
+                                        />
+                                    </Grid>
+                                })
                             }
                             {
                                 state.formState ===3 && <Grid item>
@@ -78,25 +69,21 @@ const Form = () => {
                                         control={control}/>
                                 </Grid>
                             }
-                            {
-                                state.formState ===4 && <Grid item>
-                                    <CustomLabel htmlFor="fname-text">
-                                        Select Field
-                                    </CustomLabel>
-
-                                </Grid>
-                            }
                         </Grid>
 
-                        <Grid item style={{padding: 20, margin: 20}}>
-                            <Card>
+                        <Grid item >
+                            <Card style={{padding: 20, margin: 20, maxWidth: 300}}>
                                 {JSON.stringify(state.formOutput)}
                             </Card>
                         </Grid>
 
                         <Grid container direction='row' alignItems='center' alignContent='center' justify='center'>
-                            <RenderButton/>
+                            {state.formState < Object.keys(serviceData).length && <RenderButton/>}
+                            {state.formState === Object.keys(serviceData).length && <Button type="reset" onClick={()=>{
+                                state.setFormAtParticular(2);
+                            }}>Reset</Button>}
                         </Grid>
+
 
                     </Grid>
                 </CardContent>

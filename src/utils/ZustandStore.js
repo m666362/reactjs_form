@@ -10,9 +10,12 @@ export const immer = (config) => (set, get) =>
     config((fn) => set(produce(fn)), get);
 
 let store = (set) => ({
-    formState: 1,
+    formState: 0,
     setFormState: (num)=> set((state)=>{
         state.formState = state.formState + num;
+    }),
+    setFormAtParticular: (num)=> set((state)=>{
+        state.formState = num;
     }),
     formOutput: {},
     setFormOutput: (object)=> set((state)=>{

@@ -11,19 +11,19 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-const CustomTextField = ({control, name, ...remainingProps}) => {
+const CustomTextField = ({control, item, ...remainingProps}) => {
     const classes = useStyles();
     const state = useTrackedStore()
 
     return (
         <Controller
-            name={name}
+            name={item.title}
             control={control}
             // rules={{ required: true }}
             render={({ field }) =>
                 <TextField
-                {...field}
-                {...remainingProps}
+                    {...field}
+                    {...remainingProps}
                 />}
         />
     );

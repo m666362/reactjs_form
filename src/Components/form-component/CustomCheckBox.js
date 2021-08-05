@@ -20,7 +20,6 @@ const CustomCheckBox = ({name, control, ...remainingProps}) => {
             name={name}
             control={control}
             defaultValue={false}
-            // rules={{ required: true }}
             render={({ field }) => <Checkbox {...field} {...remainingProps} />}
         />
     );
