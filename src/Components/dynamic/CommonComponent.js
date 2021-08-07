@@ -5,6 +5,7 @@ import useTrackedStore from "../../utils/ZustandStore";
 import CustomTextField from "../form-component/CustomTextField";
 import CustomCheckBox from "../form-component/CustomCheckBox";
 import CustomSelect from "../form-component/CustomSelect";
+import CustomRadioButton from "../form-component/CustomRadioButton";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -44,6 +45,9 @@ const InputDecider = ({item, control, ...remainingProps}) => {
         //     break;
         case "select":
             return <CustomSelect {...inputProps} id={"something"} />;
+            break;
+        case "radio-button":
+            return <CustomRadioButton {...inputProps} id={"something"} />;
             break;
         default:
             return item.type + " is not defiend yet";
