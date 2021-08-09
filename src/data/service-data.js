@@ -1,5 +1,5 @@
 const ROOMS = {
-    type: "select",
+    type: "auto-complete",
     title: "rooms",
     menus: [
         {
@@ -42,8 +42,8 @@ const LIFT = {
     ]
 }
 
-const PACKAGE = {
-    type: "select",
+export const PACKAGE = {
+    type: "multiple-select",
     title: "package",
     menus: [
         {

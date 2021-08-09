@@ -1,11 +1,5 @@
 import React from 'react';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
 import {Controller} from "react-hook-form";
-import {List, MenuItem, Select} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import {IonItem, IonLabel, IonList, IonRadio, IonRadioGroup} from "@ionic/react";
 /* Core CSS required for Ionic components to work properly */
@@ -39,6 +33,7 @@ const CustomRadioButton = ({control, item, ...remainingProps}) => {
                                     return <IonItem>
                                         <IonLabel>{menu.name?menu.name:menu}</IonLabel>
                                         <IonRadio value={menu} slot="start" />
+                                        <p>{menu.subText?menu.subText: ""}</p>
                                     </IonItem>
                                 })
                             }

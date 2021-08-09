@@ -11,8 +11,10 @@ import CustomSelect from "./form-component/CustomSelect";
 import CustomCheckBox from "./form-component/CustomCheckBox";
 import RenderButton from "./form-component/RenderButton";
 import {makeStyles} from "@material-ui/core/styles";
-import {serviceData} from "../data/service-data";
+import {PACKAGE, serviceData} from "../data/service-data";
 import CommonComponent from "./dynamic/CommonComponent";
+import CustomMultipleSelect from "./form-component/CustomMultipleSelect";
+import CustomAutoComplete, {ComboBoxAutocomplete} from "./form-component/CustomAutoComplete";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -54,6 +56,7 @@ const Form = () => {
                                     </Grid>
                                 })
                             }
+                            {/*<CustomAutoComplete item={PACKAGE} control={control} id={"something"}/>*/}
                         </Grid>
 
                         <Grid item >
