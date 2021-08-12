@@ -27,6 +27,17 @@ const ROOMS = {
 
 export const availablePostCode = [1000, 2000, 3000];
 
+export const TABLE = {
+    type: "table",
+    title: "services_additional_items",
+    menus: [
+        { name: "bedrooms", heading: "Bedrooms", subText: "upto 12 sqm", quantity: 0},
+        { name: "living_bedrooms", heading: "Living/Dining Bedrooms", subText: "upto 20 sqm", quantity: 0},
+        { name: "lounges", heading: "Lounges", subText: "upto 35 sqm", quantity: 0},
+        { name: "flight_of_stairs", heading: "Flight of Stairs", subText: "upto 15 teps", quantity: 0}
+    ]
+}
+
 
 const LIFT = {
     type: "select",
@@ -45,8 +56,8 @@ const LIFT = {
 export const PACKAGE = {
     type: "multiple-select",
     title: "package",
-    menus: [
-        {
+    // menus: [1, 2, 3, 4],
+    menus:[    {
             name: "premium package"
         },
         {

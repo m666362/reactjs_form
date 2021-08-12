@@ -7,11 +7,13 @@ import {ThemeProvider} from '@material-ui/core/styles';
 import {theme} from './Others/Theme'
 import Form from "./Components/Form";
 import FormTwo from "./Components/form-component/CustomAutoComplete";
+import { TABLE } from './data/service-data';
+import CustomizedTables from './Components/form-component/CustomTable';
 
 ReactDOM.render(
     <React.StrictMode>
         <ThemeProvider theme={theme}>
-            <Form/>
+            <CustomizedTables table={TABLE}/>
         </ThemeProvider>
     </React.StrictMode>,
     document.getElementById('root')

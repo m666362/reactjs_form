@@ -21,6 +21,10 @@ let store = (set) => ({
     setFormOutput: (object)=> set((state)=>{
         state.formOutput = object;
     }),
+    tableOutput: 0,
+    setTableOutput: (num)=> set((state)=>{
+        state.tableOutput = state.tableOutput + num;
+    }),
 });
 
 // store = persist(store, {name: 'user_settings'})
